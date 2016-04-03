@@ -29,3 +29,7 @@ print '<br>';
 $books1 = new ShopBooks('MySQL для начинающих', 'Бретт', 'Маклафлин', 100, 457);
 print $books1->getSummaryLine();
 
+print '<br>';
+ShopBooks::$page = 5;
+print ShopBooks::$page;
+

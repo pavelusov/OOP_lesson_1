@@ -108,7 +108,7 @@ class ShopCD extends ShopProduct
 //Дочерний класс ShopProduct для книг
 class ShopBooks extends ShopProduct
 {
-    public $page;
+    static public $page = 0;
 
     public function __construct($title, $nameFirst, $nameLast, $price, $page)
     {
