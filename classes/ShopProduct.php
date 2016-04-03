@@ -2,23 +2,59 @@
 //Родительский класс Parent
 class ShopProduct
 {
-    public $title = 'Стандартный товар';
-    public $authorNameFirst = 'Имя автора';
-    public $authorNameLast = 'Фамилия автора';
-    public $price = 0;
+    private $title;
+    private $authorNameFirst;
+    private $authorNameLast;
+    protected $price;
+    private $discount = 0;
 
     function __construct($title, $nameFirst, $nameLast, $price)
     {
-        $this->title = $title;
+        $this->title           = $title;
         $this->authorNameFirst = $nameFirst;
-        $this->authorNameLast = $nameLast;
-        $this->price = $price;
+        $this->authorNameLast  = $nameLast;
+        $this->price           = $price;
+    }
+    //Создаем джетеры
+    public function getAuthorNameFirst()
+    {
+        return $this->authorNameFirst;
+    }
+
+    public function getAuthorNameLast()
+    {
+        return $this->authorNameLast;
     }
 
     public function getAuthor()
     {
         return $this->authorNameFirst . ' ' . $this->authorNameLast;
     }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+
+    //Создаем сетер $discount
+    public function setDiscount($num)
+    {
+        $this->discount = $num;
+    }
+    //Создаем джетер $discount
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+    //Вычитаем из цены скидку
+    public function getPrice()
+    {
+        return $this->price - $this->price;
+    }
+
+
+
     public function getSummaryLine(){
         $base =  '"' . $this->title . '". Автор: ';
         $base .= $this->authorNameFirst . ' ';
