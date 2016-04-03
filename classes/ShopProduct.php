@@ -15,7 +15,7 @@ class ShopProduct
         $this->authorNameLast  = $nameLast;
         $this->price           = $price;
     }
-    //Создаем джетеры
+    //Создаем джеттеры
     public function getAuthorNameFirst()
     {
         return $this->authorNameFirst;
@@ -37,7 +37,7 @@ class ShopProduct
     }
 
 
-    //Создаем сетер $discount
+    //Создаем сеттер $discount
     public function setDiscount($num)
     {
         $this->discount = $num;
@@ -50,7 +50,7 @@ class ShopProduct
     //Вычитаем из цены скидку
     public function getPrice()
     {
-        return $this->price - $this->price;
+        return $this->price - $this->discount;
     }
 
 
@@ -77,9 +77,10 @@ class ShopProductWriter
 
     public function write(){
         $str = '';
-        foreach ($this->products as $product) {
-            $str = $product->title;
-            $str .= ' ' . $product->getAuthor();
+        foreach ($this->products as $shopProduct) {
+            $str = $shopProduct->getTitle();
+            $str .= '. ' . $shopProduct->getAuthor();
+            $str .= '. Цена: ' . $shopProduct->getPrice();
 
         }
         print $str;

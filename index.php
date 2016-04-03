@@ -5,14 +5,18 @@ echo '<br>';
 require __DIR__ . '/classes/ShopProduct.php';
 //создаем новые объекты типа ShopProduct
 $product1 = new ShopProduct('PHP для начинающих', 'Павел', 'Усов', 200);
-print $product1->getSummaryLine();
+
 print '<br>';
 $product2 = new ShopProduct('MySQL для начинающих', 'Данил', 'Усов', 190);
 $show = new ShopProductWriter();
 $show->addProduct($product1);
-$show->addProduct($product2);
+//$show->addProduct($product2);
+
+//Создали скидку в 40 рублей!
+$product1->setDiscount(40);
 echo '<br>';
-$show->write($product1);
+$show->write();
+
 echo '<br>';
 echo '******************************************';
 echo '<br>';
